@@ -7,7 +7,7 @@ import { addItem } from './CartSlice';
 function ProductList() {
     const [showCart, setShowCart] = useState(false);
     const [showPlants, setShowPlants] = useState(false); // State to control the visibility of the About Us page
-    const [addedToCart, setAddedToCart] = useState({}); // To track which products are added to the  cart
+    const [addedToCart, setAddedToCart] = useState({}); // To track which products are added to cart
     const cart = useSelector((state) => state.cart);
     const dispatch = useDispatch();
 
@@ -225,7 +225,7 @@ function ProductList() {
         padding: '15px',
         display: 'flex',
         justifyContent: 'space-between',
-        alignItems: 'center',
+        alignIems: 'center',
         fontSize: '20px',
     }
     const styleObjUl = {
@@ -274,12 +274,16 @@ function ProductList() {
                 <div className="tag">
                     <div className="luxury">
                         <img src="https://cdn.pixabay.com/photo/2020/08/05/13/12/eco-5465432_1280.png" alt="" />
-                        <a href="/e-plantShopping/" style={{ textDecoration: 'none' }}>
+                        <div onClick={() => {
+                            setShowCart(false);
+                            setShowPlants(false);
+                        }} style={{ textDecoration: 'none', cursor: 'pointer' }}>
                             <div>
                                 <h3 style={{ color: 'white' }}>Paradise Nursery</h3>
                                 <i style={{ color: 'white' }}>Where Green Meets Serenity</i>
                             </div>
-                        </a>
+                        </div>
+
                     </div>
                 </div>
                 <div style={styleObjUl}>
